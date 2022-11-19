@@ -51,10 +51,6 @@ def revDF(df):
     
     fig.show()
 
-    #data = dfPaises[['SurfaceArea','Population']].head(15)
-    #ax = sns.heatmap(data, linewidth=0.3,cmap='cool', annot = True)
-    #plt.show()
-
 dfXML=pd.read_csv('TEMPXMLFILEDATA.csv')
 revDF(dfXML)
 
@@ -77,3 +73,11 @@ px.histogram(dfXML, x = 'ISPAYMENTPENDING')
 px.histogram(dfXML, x = 'BRANCHID', color = 'BRANCHID')
 
 """En las graficas anteriores podemos observar distintos histogramas que describen el comportamiento de las variables de nuestro conjunto de datos. Elegimos las variables que consideramos mas representativas para realizar estas graficas para estudiar su distribución. """
+
+data = dfXML[['VATAMOUNT', 'INCOMETAXAMT', 'TOTALBEFORTAX', 'TOTALAFTERTAX', 'AMOUNTPAID']].head(3000)
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+ax = sns.heatmap(data, linewidth=0.3,cmap='cool', annot = True)
+plt.show()
